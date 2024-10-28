@@ -1,0 +1,8 @@
+<mat-form-field>
+    <mat-label>{{selectProps.label}}</mat-label>
+    <mat-select [formControl]="selectProps.form" multiple={{selectProps.multiple}}>
+        @for (option of selectProps.options; track option) {
+        <mat-option [value]="option" (click)="optionClicked()">{{option.value}}</mat-option>
+        }
+    </mat-select>
+</mat-form-field>

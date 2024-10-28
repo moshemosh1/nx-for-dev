@@ -1,0 +1,23 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)">
+    <ng-container *ngFor="let tableColumn of displayedColumns" [matColumnDef]="tableColumn">
+      <ng-container>
+        <th mat-header-cell *matHeaderCellDef [mat-sort-header]="tableColumn">
+          {{tableColumn}}
+        </th>
+      </ng-container>
+      <ng-template #notSortable>
+        <th mat-header-cell *matHeaderCellDef>
+          {{tableColumn}}
+        </th>
+      </ng-template>
+      <td mat-cell *matCellDef="let element">
+        {{element[tableColumn]}}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="dataSource.data.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
