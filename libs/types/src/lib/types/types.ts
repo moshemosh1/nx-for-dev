@@ -22,3 +22,21 @@ export interface BaseAutocomplete {
   options: string[];
   form: FormControl;
 }
+
+export interface BaseInput {
+  label: string;
+  placeHolder?: string;
+  form: FormControl;
+  isTextarea: boolean;
+  type: inputTypes;
+  validators?: string[];
+}
+
+export enum inputTypes {
+  number = 'number',
+  text = 'text',
+  password = 'password',
+  email = 'email',
+  color = 'color',
+  date = 'date',
+}

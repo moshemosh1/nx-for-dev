@@ -1,14 +1,21 @@
 import { Component } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import {
+  BaseAutocomplete,
+  BaseInput,
+  BaseSelect,
+  BaseTable,
+  inputTypes,
+} from '@cms-monoripo/types';
+import {
+  ReusableAutocompleteComponent,
+  ReusableInputComponent,
   ReusableSelectComponent,
   ReusableTableComponent,
   UiComponent,
-  ReusableAutocompleteComponent,
 } from '@cms-monoripo/ui';
-import { BaseAutocomplete, BaseSelect, BaseTable } from '@cms-monoripo/types';
-import { FormControl } from '@angular/forms';
+import { NxWelcomeComponent } from './nx-welcome.component';
 
 export interface PeriodicElement {
   name: string;
@@ -38,6 +45,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     ReusableSelectComponent,
     ReusableAutocompleteComponent,
     RouterModule,
+    ReusableInputComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -52,6 +60,7 @@ export class AppComponent {
 
   optionClicked() {
     console.log(this.select.form);
+    console.log(this.input.form);
   }
 
   select: BaseSelect = {
@@ -79,5 +88,21 @@ export class AppComponent {
     ],
     label: 'Toppings',
     form: new FormControl(''),
+  };
+
+  input: BaseInput = {
+    label: 'input',
+    form: new FormControl('', [Validators.required, Validators.max(5)]),
+    isTextarea: false,
+    type: inputTypes.number,
+    validators: ['required'],
+  };
+
+  textarea: BaseInput = {
+    label: 'textarea',
+    form: new FormControl('', [Validators.email, Validators.required]),
+    isTextarea: true,
+    type: inputTypes.email,
+    validators: ['required', 'email'],
   };
 }

@@ -1,4 +1,18 @@
 <lib-reusable-table [tableProp]="test"></lib-reusable-table>
-<lib-reusable-select [selectProps]="select" (valueChange)="optionClicked()"></lib-reusable-select>
-<lib-reusable-autocomplete [selectProps]="auto" (valueChange)="optionClicked()"></lib-reusable-autocomplete>
+<lib-reusable-select
+  [selectProps]="select"
+  (valueChange)="optionClicked()"
+></lib-reusable-select>
+<lib-reusable-autocomplete
+  [selectProps]="auto"
+  (valueChange)="optionClicked()"
+></lib-reusable-autocomplete>
+<lib-reusable-input
+  [inputProps]="input"
+  (valueChange)="optionClicked()"
+></lib-reusable-input>
+<lib-reusable-input
+  [inputProps]="textarea"
+  (valueChange)="optionClicked()"
+></lib-reusable-input>
 <router-outlet></router-outlet>

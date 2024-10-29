@@ -1,1 +1,27 @@
-<p>reusable-input works!</p>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>{{ inputProps.label }}</mat-label>
+    <div *ngIf="inputProps.isTextarea; else textBlock">
+      <textarea
+        matInput
+        type="{{ inputProps.type }}"
+        [formControl]="inputProps.form"
+        placeholder="{{ inputProps.placeHolder }}"
+        (change)="changeValue()"
+        (blur)="updateErrorMessage()"
+      ></textarea>
+    </div>
+    <ng-template #textBlock
+      ><input
+        matInput
+        type="{{ inputProps.type }}"
+        [formControl]="inputProps.form"
+        placeholder="{{ inputProps.placeHolder }}"
+        (change)="changeValue()"
+        (blur)="updateErrorMessage()"
+    /></ng-template>
+    @if (inputProps.form.invalid) {
+    <mat-error>{{ errorMessage() }}</mat-error>
+    }
+  </mat-form-field>
+</form>
