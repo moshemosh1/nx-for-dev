@@ -12,14 +12,10 @@ import { BaseSelect } from '@cms-monoripo/types';
   templateUrl: './reusable-select.component.html',
   styleUrl: './reusable-select.component.css',
 })
-export class ReusableSelectComponent implements AfterViewInit {
+export class ReusableSelectComponent {
 
   @Input() selectProps!:BaseSelect;
   @Output() valueChange = new EventEmitter<unknown>();
-
-  ngAfterViewInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   optionClicked(){
     this.valueChange.emit();
