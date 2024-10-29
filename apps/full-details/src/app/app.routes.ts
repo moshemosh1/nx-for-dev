@@ -1,7 +1,8 @@
 import { Route } from '@angular/router';
 
-export const appRoutes: Route[] = [{
+export const appRoutes: Route[] = [
+  {
     path: 'products',
-    loadComponent: () =>
-      import('@cms-monoripo/ui').then((m) => m.UiComponent),
-  },];
+    loadComponent: () => import('@cms-monoripo/ui').then((m) => m.UiComponent),
+  },
+];

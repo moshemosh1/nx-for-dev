@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-types',
@@ -9,4 +9,3 @@ import { CommonModule } from '@angular/common';
   styleUrl: './types.component.css',
 })
 export class TypesComponent {}
-

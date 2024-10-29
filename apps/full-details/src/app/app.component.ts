@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { ReusableSelectComponent, ReusableTableComponent, UiComponent } from '@cms-monoripo/ui';
-import { BaseSelect, BaseTable } from '@cms-monoripo/types';
+import {
+  ReusableSelectComponent,
+  ReusableTableComponent,
+  UiComponent,
+  ReusableAutocompleteComponent,
+} from '@cms-monoripo/ui';
+import { BaseAutocomplete, BaseSelect, BaseTable } from '@cms-monoripo/types';
 import { FormControl } from '@angular/forms';
 
 export interface PeriodicElement {
@@ -26,7 +31,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, UiComponent, ReusableTableComponent, ReusableSelectComponent, RouterModule],
+  imports: [
+    NxWelcomeComponent,
+    UiComponent,
+    ReusableTableComponent,
+    ReusableSelectComponent,
+    ReusableAutocompleteComponent,
+    RouterModule,
+  ],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -35,19 +47,37 @@ export class AppComponent {
   title = 'full-details';
   test: BaseTable = {
     data: ELEMENT_DATA,
-    columns: ['position', 'name', 'weight', 'symbol']
-  }
-  
-  optionClicked(){
-    console.log(this.select.form)
+    columns: ['position', 'name', 'weight', 'symbol'],
+  };
+
+  optionClicked() {
+    console.log(this.select.form);
   }
 
   select: BaseSelect = {
-    options: [{ value: 'Extra cheese', key: 'ExtraCheese' }, { value: 'Mushroom', key: 'Mushroom' }, 
-      { value: 'Onion', key: 'Onion' }, { value: 'Pepperoni', key: 'Pepperoni' }, {value:'Sausage',key:'Sausage'}, {value:'Tomato',key:'Tomato'}],
-    label:'Toppings',
-    multiple:true,
-    form:new FormControl('')
-  }
+    options: [
+      { value: 'Extra cheese', key: 'ExtraCheese' },
+      { value: 'Mushroom', key: 'Mushroom' },
+      { value: 'Onion', key: 'Onion' },
+      { value: 'Pepperoni', key: 'Pepperoni' },
+      { value: 'Sausage', key: 'Sausage' },
+      { value: 'Tomato', key: 'Tomato' },
+    ],
+    label: 'Toppings',
+    multiple: true,
+    form: new FormControl(''),
+  };
 
+  auto: BaseAutocomplete = {
+    options: [
+      'Extra cheese',
+      'Mushroom',
+      'Onion',
+      'Pepperoni',
+      'Sausage',
+      'Tomato',
+    ],
+    label: 'Toppings',
+    form: new FormControl(''),
+  };
 }

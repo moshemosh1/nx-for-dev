@@ -5,4 +5,4 @@ export * from './lib/reusable-input/reusable-input.component';
 export * from './lib/reusable-loader/reusable-loader.component';
 export * from './lib/reusable-select/reusable-select.component';
 export * from './lib/reusable-title/reusable-title.component';
-
+export * from './lib/reusable-autocomplete/reusable-autocomplete.component';
