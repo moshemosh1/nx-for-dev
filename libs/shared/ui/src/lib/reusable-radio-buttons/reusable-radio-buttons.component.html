@@ -1,0 +1,7 @@
+<div>
+  @for (radio of radioButtonsProps; track radio) {
+  <mat-radio-button [value]="radio.value" (click)="radio.clickEvent(radio)">{{
+    radio.text
+  }}</mat-radio-button>
+  }
+</div>

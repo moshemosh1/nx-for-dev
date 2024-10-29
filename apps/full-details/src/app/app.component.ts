@@ -3,14 +3,22 @@ import { FormControl, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {
   BaseAutocomplete,
+  BaseButton,
+  BaseCheckbox,
   BaseInput,
+  BaseLoader,
+  BaseRadioButton,
   BaseSelect,
   BaseTable,
   inputTypes,
 } from '@cms-monoripo/types';
 import {
   ReusableAutocompleteComponent,
+  ReusableButtonComponent,
+  ReusableCheckboxComponent,
   ReusableInputComponent,
+  ReusableLoaderComponent,
+  ReusableRadioButtonsComponent,
   ReusableSelectComponent,
   ReusableTableComponent,
   UiComponent,
@@ -46,6 +54,10 @@ const ELEMENT_DATA: PeriodicElement[] = [
     ReusableAutocompleteComponent,
     RouterModule,
     ReusableInputComponent,
+    ReusableButtonComponent,
+    ReusableCheckboxComponent,
+    ReusableLoaderComponent,
+    ReusableRadioButtonsComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -59,8 +71,13 @@ export class AppComponent {
   };
 
   optionClicked() {
-    console.log(this.select.form);
-    console.log(this.input.form);
+    // console.log(this.select.form);
+    // console.log(this.input.form);
+    console.log('button clicked');
+  }
+
+  radioClicked(val: BaseRadioButton) {
+    console.log({ val });
   }
 
   select: BaseSelect = {
@@ -92,10 +109,14 @@ export class AppComponent {
 
   input: BaseInput = {
     label: 'input',
-    form: new FormControl('', [Validators.required, Validators.max(5)]),
+    form: new FormControl('', [
+      Validators.required,
+      Validators.max(5),
+      Validators.min(0),
+    ]),
     isTextarea: false,
     type: inputTypes.number,
-    validators: ['required'],
+    validators: ['required', 'max', 'min'],
   };
 
   textarea: BaseInput = {
@@ -105,4 +126,39 @@ export class AppComponent {
     type: inputTypes.email,
     validators: ['required', 'email'],
   };
+
+  button: BaseButton = {
+    text: 'click',
+    isDisabled: false,
+    clickEvent: this.optionClicked,
+  };
+
+  checkbox: BaseCheckbox = {
+    text: 'choose me',
+    clickEvent: () => console.log('checkbox clicked'),
+    disabled: false,
+  };
+
+  loader: BaseLoader = {
+    mode: 'indeterminate',
+    value: 20,
+  };
+
+  radioButtons: BaseRadioButton[] = [
+    {
+      value: Math.random().toString(),
+      text: 'option 1',
+      clickEvent: this.radioClicked,
+    },
+    {
+      value: Math.random().toString(),
+      text: 'option 2',
+      clickEvent: this.radioClicked,
+    },
+    {
+      value: Math.random().toString(),
+      text: 'option 3',
+      clickEvent: this.radioClicked,
+    },
+  ];
 }

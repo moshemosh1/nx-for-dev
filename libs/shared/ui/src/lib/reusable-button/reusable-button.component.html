@@ -1,1 +1,7 @@
-<p>reusable-button works!</p>
+<button
+  mat-raised-button
+  disabled="{{ buttonProps.isDisabled }}"
+  (click)="buttonProps.clickEvent()"
+>
+  {{ buttonProps.text }}
+</button>

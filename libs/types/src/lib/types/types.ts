@@ -1,4 +1,5 @@
 import { FormControl } from '@angular/forms';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 export interface BaseTable {
   columns: string[];
@@ -39,4 +40,27 @@ export enum inputTypes {
   email = 'email',
   color = 'color',
   date = 'date',
+}
+
+export interface BaseButton {
+  isDisabled: boolean;
+  icon?: string;
+  text?: string;
+  clickEvent: () => void;
+}
+
+export interface BaseCheckbox {
+  text: string;
+  disabled: boolean;
+  clickEvent: () => void;
+}
+
+export interface BaseLoader {
+  mode: ProgressSpinnerMode;
+  value: number;
+}
+export interface BaseRadioButton {
+  value: string;
+  text: string;
+  clickEvent: (val: BaseRadioButton) => void;
 }
