@@ -64,3 +64,9 @@ export interface BaseRadioButton {
   text: string;
   clickEvent: (val: BaseRadioButton) => void;
 }
+
+export interface BaseGrid {
+  cols: number;
+  rowHeight: string | number;
+  components: any[];
+}

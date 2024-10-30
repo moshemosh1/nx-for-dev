@@ -1,0 +1,8 @@
+<div class="dict-wrapper">
+  @for (option of dict | keyvalue; track option) {
+  <div class="key-value-wrapper">
+    <div class="key">{{ option.key }} :</div>
+    <div class="value">{{ option.value }}</div>
+  </div>
+  }
+</div>

@@ -1,0 +1,16 @@
+.dict-wrapper{
+    display: flex;
+    flex-direction: column;
+    .key-value-wrapper{
+        display: flex;
+        gap: 40px;
+        .key{
+            font-size: xx-large;
+            font: bold;
+            color: brown;
+        }
+        .value{
+            font-size: xx-large;
+        }
+    }
+}

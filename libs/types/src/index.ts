@@ -1,2 +1,1 @@
-export * from './lib/types/types.component';
-export * from './lib/types/types';
+export * from './lib/types';

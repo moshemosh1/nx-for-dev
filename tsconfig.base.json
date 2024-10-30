@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@cms-monoripo/services": ["libs/services/src/index.ts"],
       "@cms-monoripo/types": ["libs/types/src/index.ts"],
       "@cms-monoripo/ui": ["libs/shared/ui/src/index.ts"]
     }

@@ -5,6 +5,7 @@ import {
   BaseAutocomplete,
   BaseButton,
   BaseCheckbox,
+  BaseGrid,
   BaseInput,
   BaseLoader,
   BaseRadioButton,
@@ -13,6 +14,7 @@ import {
   inputTypes,
 } from '@cms-monoripo/types';
 import {
+  DictDisplayComponent,
   ReusableAutocompleteComponent,
   ReusableButtonComponent,
   ReusableCheckboxComponent,
@@ -21,7 +23,6 @@ import {
   ReusableRadioButtonsComponent,
   ReusableSelectComponent,
   ReusableTableComponent,
-  UiComponent,
 } from '@cms-monoripo/ui';
 import { NxWelcomeComponent } from './nx-welcome.component';
 
@@ -48,7 +49,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   standalone: true,
   imports: [
     NxWelcomeComponent,
-    UiComponent,
     ReusableTableComponent,
     ReusableSelectComponent,
     ReusableAutocompleteComponent,
@@ -58,6 +58,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
     ReusableCheckboxComponent,
     ReusableLoaderComponent,
     ReusableRadioButtonsComponent,
+    DictDisplayComponent,
   ],
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -140,7 +141,7 @@ export class AppComponent {
   };
 
   loader: BaseLoader = {
-    mode: 'indeterminate',
+    mode: 'determinate',
     value: 20,
   };
 
@@ -161,4 +162,15 @@ export class AppComponent {
       clickEvent: this.radioClicked,
     },
   ];
+
+  grig: BaseGrid = {
+    cols: 2,
+    rowHeight: '2:1',
+    components: [],
+  };
+
+  dict: Record<string, string> = {
+    a: 'a',
+    b: 'b',
+  };
 }

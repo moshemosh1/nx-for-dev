@@ -1,4 +1,3 @@
-export * from './lib/ui/ui.component';
 export * from './lib/reusable-table/reusable-table.component';
 export * from './lib/reusable-button/reusable-button.component';
 export * from './lib/reusable-input/reusable-input.component';
@@ -8,3 +7,4 @@ export * from './lib/reusable-title/reusable-title.component';
 export * from './lib/reusable-autocomplete/reusable-autocomplete.component';
 export * from './lib/reusable-checkbox/reusable-checkbox.component';
 export * from './lib/reusable-radio-buttons/reusable-radio-buttons.component';
+export * from './lib/dict-display/dict-display.component';
